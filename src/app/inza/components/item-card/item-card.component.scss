@@ -1,0 +1,108 @@
+.item {
+  padding: 10px;
+  border: 3px solid black;
+  border-top-color: white;
+  border-left-color: white;
+}
+
+.item-even {
+  @extend .item;
+  background-color: #8fbecb;
+}
+
+.item-odd {
+  padding: 10px;
+  background-color: #696888;
+  border: 3px solid black;
+  border-top-color: white;
+  border-left-color: white;
+}
+
+.border-radius {
+  border-radius: 20px;
+}
+
+.cool {
+  @extend .border-radius;
+  background-color: deepskyblue;
+}
+
+.hot {
+  @extend .border-radius;
+  background-color: red;
+}
+
+.veg {
+  @extend .border-radius;
+  background-color: darkseagreen;
+}
+
+.non-veg {
+  @extend .border-radius;
+  background-color: indianred;
+}
+
+.promo-label  {
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-left: 5px;
+  font-size: 15px;
+  border: 3px dotted #c14583;
+  color: #c14583;
+  background-color: gold;
+}
+
+.fixed-size-image {
+  width: 200px;  /* Set the desired width */
+  height: 200px; /* Set the desired height */
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+
+.fixed-size-image-menu-card {
+  width: 70px;  /* Set the desired width */
+  height: 70px; /* Set the desired height */
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+
+/* for the arrangement of the details and image containers*/
+.item-card-container-outer {
+  display: flex;
+  flex-direction: row; /* Ensure the items are laid out in a row */
+}
+
+.item-card-container {
+  flex: 1; /* Each box will take up an equal amount of space */
+  padding: 10px;
+  text-align: center;
+
+}
+
+.item-card-left {
+  order: 1; /* Ensure .box1 is on the left side */
+}
+
+.item-card-right {
+  order: 2; /* Ensure .box2 is on the right side */
+  background-color: white;
+  padding: 20px;
+  border-radius: 50px ;
+  border: 6px double black;
+}
+
+.price-tag {
+  display: inline-block;
+  background-color: #ff3b3f; /* Red background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  font-size: 1.5em; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  text-align: center; /* Center the text */
+  margin: 10px; /* Margin around the tag */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.price-tag:hover {
+  transform: scale(1.1); /* Scale up the price tag on hover */
+}

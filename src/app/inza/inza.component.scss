@@ -1,0 +1,27 @@
+
+.noItemsFound {
+  background-color: red;
+  border: black;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 8rem;
+}
+
+.container {
+  display: flex;
+  border: 1px solid #ddd; /* Optional: For overall container border */
+}
+
+.admin-panel, .menu-panel {
+  padding: 10px;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ccc;
+  margin: 0 10px; /* Adjust the space between the panels */
+}
