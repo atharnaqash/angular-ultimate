@@ -2,7 +2,8 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  background-image: url('/assets/images/comon_images/bgforfood.jpg');
+  background-position: center center; /* Center the image */
 }
 
 header {
@@ -10,7 +11,7 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  background: linear-gradient(135deg, #030303, #ffc3a0);
   position: fixed;
   top: 0;
   left: 0;
@@ -21,10 +22,10 @@ header {
 .heading {
   font-size: 2em;
   color: #fff;
-  background-color: #333;
+  background-color: #a90808;
   padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  border: white solid 2px ;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;

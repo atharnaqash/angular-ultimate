@@ -3,7 +3,7 @@
   <!-- name text field -->
   <label class="form-label">
     <span class="form-span">Name</span>
-    <input type="text" name="name" class="input" minlength="3" required ngModel #name="ngModel" [ngModelOptions]="{updateOn: 'submit'}"/>
+    <input type="text" name="name" class="input" minlength="3" required [ngModel]="menuItem.name" #name="ngModel" [ngModelOptions]="{updateOn: 'submit'}"/>
     <ng-container *ngIf="name.invalid && name.touched">
       <div class="form-error" *ngIf="name.errors?.['minlength']">
         Name should have minimum 3 characters.
@@ -18,7 +18,7 @@
   <!-- price text field -->
   <label class="form-label">
     <span class="form-span">Price</span>
-    <input type="number" name="price" class="input"  required ngModel [ngModelOptions]="{updateOn: 'submit'}" />
+    <input type="number" name="price" class="input"  required [ngModel]="menuItem.price" [ngModelOptions]="{updateOn: 'submit'}" />
   </label>
 
   <!-- promo radio option -->
@@ -26,22 +26,22 @@
     <p class="radio-group-title">
       Promo:
       <label class="radio-label">
-        <input type="radio" name="promo" value="new" class="radio-input" ngModel  [ngModelOptions]="{updateOn: 'submit'}"/>
+        <input type="radio" name="promo" value="new" class="radio-input" [ngModel]="menuItem.promo"  [ngModelOptions]="{updateOn: 'submit'}"/>
         <span class="radio-span">New</span>
       </label>
 
       <label class="radio-label">
-        <input type="radio" name="promo" value="free" class="radio-input" ngModel  [ngModelOptions]="{updateOn: 'submit'}"/>
+        <input type="radio" name="promo" value="free" class="radio-input" [ngModel]="menuItem.promo"  [ngModelOptions]="{updateOn: 'submit'}"/>
         <span class="radio-span">Free</span>
       </label>
 
       <label class="radio-label">
-        <input type="radio" name="promo" value="limited" class="radio-input" ngModel [ngModelOptions]="{updateOn: 'submit'}" />
+        <input type="radio" name="promo" value="limited" class="radio-input" [ngModel]="menuItem.promo" [ngModelOptions]="{updateOn: 'submit'}" />
         <span class="radio-span">Limited</span>
       </label>
 
       <label class="radio-label">
-        <input type="radio" name="promo" [value]="undefined" class="radio-input" ngModel [ngModelOptions]="{updateOn: 'submit'}"/>
+        <input type="radio" name="promo" [value]="undefined" class="radio-input" [ngModel]="menuItem.promo" [ngModelOptions]="{updateOn: 'submit'}"/>
         <span class="radio-span">None</span>
       </label>
     </p>
@@ -50,8 +50,8 @@
   <!-- icon select option -->
   <label class="form-label">
     <span class="form-span">Icon</span>
-    <select name="icon" class="select" required ngModel [ngModelOptions]="{updateOn: 'submit'}">
-      <option *ngFor="let icon of icons" [ngValue]="icon"> {{icon}}</option>
+    <select name="icon" class="select" required [ngModel]="menuItem.image" [ngModelOptions]="{updateOn: 'submit'}">
+      <option *ngFor="let image of images" [ngValue]="image"> {{image}}</option>
     </select>
   </label>
 
@@ -59,6 +59,6 @@
   <button type="button" class="button button--grey"  (click)="form.reset()">Reset</button>
   <button type="button" class="button button--grey"  (click)="form.resetForm({name: 'initial state'})">Reset Form</button>
 
+  <pre class="form-pre"> {{ menuItem | json }} </pre>
   <pre class="form-pre"> {{ form.value | json }} </pre>
-  <pre class="form-pre"> {{ form.submitted | json }} </pre>
 </form>
