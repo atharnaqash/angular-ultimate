@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {MenuItem} from './data/menu-item.model';
+import {MenuItem} from '../../data-model/menu-item.model';
 
 @Component({
-  selector: 'app-inza',
-  templateUrl: './inza.component.html',
-  styleUrl: './inza.component.scss'
+  selector: 'app-inza-list',
+  templateUrl: './inza-list.component.html',
+  styleUrl: './inza-list.component.scss'
 })
-export class InzaComponent {
+export class InzaListComponent {
 
    menuItems: MenuItem[] = [
     {

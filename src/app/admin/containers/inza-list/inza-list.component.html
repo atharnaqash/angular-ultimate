@@ -1,6 +1,4 @@
-<div class="main">
   <div class="container">
-
     <div class="menu-panel">
       <ng-container *ngIf="menuItems.length>0; else noItemsFound">
         <ng-container *ngFor="let item of menuItems; let i = index; trackBy: trackById">
@@ -14,11 +12,4 @@
         </p>
       </ng-template>
     </div>
-
-    <div class="divider"></div>
-    <div class="admin-panel">
-      <app-admin></app-admin>
-    </div>
-
   </div>
-</div>

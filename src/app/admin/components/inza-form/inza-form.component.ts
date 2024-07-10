@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {MenuItem} from '../../../inza/data/menu-item.model';
+import {MenuItem} from '../../data-model/menu-item.model';
 
 @Component({
   selector: 'app-inza-form',
