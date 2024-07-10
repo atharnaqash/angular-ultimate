@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InzaComponent } from './inza.component';
+import { InzaListComponent } from './inza-list.component';
 
 describe('InzaComponent', () => {
-  let component: InzaComponent;
-  let fixture: ComponentFixture<InzaComponent>;
+  let component: InzaListComponent;
+  let fixture: ComponentFixture<InzaListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InzaComponent]
+      declarations: [InzaListComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(InzaComponent);
+
+    fixture = TestBed.createComponent(InzaListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

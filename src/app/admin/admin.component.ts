@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuItem} from '../inza/data/menu-item.model';
+import {MenuItem} from './data-model/menu-item.model';
 
 @Component({
   selector: 'app-admin',
