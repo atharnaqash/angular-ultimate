@@ -14,13 +14,9 @@ export class AdminComponent implements OnInit {
   constructor(private inzaService:InzaService) {}
 
   ngOnInit() {
-
     //get item with id or else create a default object
-    const id = 'ABS12X1';
-    this.menuItem = this.inzaService.menuItems.find((item: MenuItem) => item.id === id) || {
-        name: '',
-        price: 0
-      };
+    const id = 'ABS12X';
+    this.menuItem = this.inzaService.readOneItem(id);
   }
 
   onCreate(menuItem: MenuItem) {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {MenuItem} from '../data-model/menu-item.model';
 
 @Injectable({
@@ -6,7 +6,7 @@ import {MenuItem} from '../data-model/menu-item.model';
 })
 export class InzaService {
 
-  menuItems: MenuItem[] = [
+  private menuItems: MenuItem[] = [
     {
       id: 'A1B2C3',
       name: 'Roll Parata',
@@ -17,7 +17,7 @@ export class InzaService {
     },
     {
       id: 'D4E5F6',
-      name: "Veggie Delight",
+      name: 'Veggie Delight',
       price: 4.5,
       isVegetarian: true,
       promo: 'limited',
@@ -25,23 +25,23 @@ export class InzaService {
     },
     {
       id: 'G7H8I9',
-      name: "Paneer with meat Roll",
+      name: 'Paneer with meat Roll',
       price: 5.5,
       isVegetarian: false,
       promo: 'new',
       image: 'paneerroll.png'
     },
     {
-      id: "ABS12X",
-      name: "Margherita Pizza",
+      id: 'ABS12X',
+      name: 'Margherita Pizza',
       price: 8.99,
       isVegetarian: true,
       promo: 'limited',
-      image: "margherita_pizza.jpg"
+      image: 'margherita_pizza.jpg'
     },
     {
       id: 'J1K2L3',
-      name: "Vanilla Ice Cream",
+      name: 'Vanilla Ice Cream',
       price: 3,
       isVegetarian: true,
       promo: 'free',
@@ -49,7 +49,7 @@ export class InzaService {
     },
     {
       id: 'M4N5O6',
-      name: "Chocolate Croissant",
+      name: 'Chocolate Croissant',
       price: 2.5,
       isVegetarian: true,
       promo: 'limited',
@@ -57,7 +57,7 @@ export class InzaService {
     },
     {
       id: 'P7Q8R9',
-      name: "Blueberry Muffin",
+      name: 'Blueberry Muffin',
       price: 2,
       isVegetarian: true,
       promo: 'new',
@@ -65,33 +65,42 @@ export class InzaService {
     },
     {
       id: 'S1T2U3',
-      name: "Orange Juice",
+      name: 'Orange Juice',
       price: 2.5,
       isVegetarian: true,
       image: 'orangejuice.jpeg'
     },
     {
       id: 'V4W5X6',
-      name: "Apple Juice",
+      name: 'Apple Juice',
       price: 2.5,
       isVegetarian: true,
       image: 'applejuice.jpeg'
     },
     {
       id: 'Y7Z8A9',
-      name: "Green Tea",
+      name: 'Green Tea',
       price: 1.5,
       isVegetarian: true,
       image: 'greentea.jpeg'
     },
     {
       id: 'B1C2D3',
-      name: "Espresso",
+      name: 'Espresso',
       price: 2,
       isVegetarian: true,
       image: 'espresso.png'
     }
   ];
 
-  constructor() { }
+  constructor() {
+  }
+
+  read() {
+    return this.menuItems;
+  }
+
+  readOneItem(id: string) {
+    return this.read().find((item: MenuItem) => item.id === id) || {name: '', price: 0.0};
+  }
 }

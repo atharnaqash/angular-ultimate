@@ -14,7 +14,7 @@ export class InzaListComponent implements OnInit {
   constructor(private inzaService: InzaService) {}
 
   ngOnInit() {
-    this.menuItems = this.inzaService.menuItems;
+    this.menuItems = this.inzaService.read();
   }
 
   trackById (index: number, value: MenuItem) {
