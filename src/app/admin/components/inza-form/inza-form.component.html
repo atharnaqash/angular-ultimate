@@ -1,9 +1,8 @@
-<form class="inza-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
-
+<form class="inza-form" #form="ngForm" *ngIf="menuItem; else loading">
   <!-- name text field -->
   <label class="form-label">
     <span class="form-span">Name</span>
-    <input type="text" name="name" class="input" minlength="3" required [ngModel]="menuItem.name" #name="ngModel" [ngModelOptions]="{updateOn: 'submit'}"/>
+    <input type="text" name="name" class="input" minlength="3" required [(ngModel)]="menuItem.name" #name="ngModel" />
     <ng-container *ngIf="name.invalid && name.touched">
       <div class="form-error" *ngIf="name.errors?.['minlength']">
         Name should have minimum 3 characters.
@@ -17,36 +16,32 @@
   <!-- price text field -->
   <label class="form-label">
     <span class="form-span">Price</span>
-    <input type="number" name="price" class="input"  required [ngModel]="menuItem.price" [ngModelOptions]="{updateOn: 'submit'}" />
+    <input type="number" name="price" class="input" required [(ngModel)]="menuItem.price" />
   </label>
 
   <!-- is vegetarian checkbox -->
   <label class="checkbox-label">
     <span class="checkbox-span">Is Vegetarian</span>
-    <input type="checkbox" name="isVegetarian" class="checkbox" [ngModel]="menuItem.isVegetarian" [ngModelOptions]="{updateOn: 'submit'}"/>
+    <input type="checkbox" name="isVegetarian" class="checkbox" [(ngModel)]="menuItem.isVegetarian" />
   </label>
 
   <!-- promo radio option -->
   <div class="radio-group">
     <p class="radio-group-title">
       Promo:
-      <label class="radio-label">
-        <input type="radio" name="promo" value="new" class="radio-input" [ngModel]="menuItem.promo"  [ngModelOptions]="{updateOn: 'submit'}"/>
-        <span class="radio-span">New</span>
+      <label class="radio-label" *ngFor="let promoOption of ['new', 'free', 'limited']">
+        <input
+                type="radio"
+                name="promo"
+                [value]="promoOption"
+                class="radio-input"
+                [(ngModel)]="menuItem.promo"
+        />
+        <span class="radio-span">{{ promoOption.charAt(0).toUpperCase() + promoOption.slice(1) }}</span>
       </label>
 
       <label class="radio-label">
-        <input type="radio" name="promo" value="free" class="radio-input" [ngModel]="menuItem.promo"  [ngModelOptions]="{updateOn: 'submit'}"/>
-        <span class="radio-span">Free</span>
-      </label>
-
-      <label class="radio-label">
-        <input type="radio" name="promo" value="limited" class="radio-input" [ngModel]="menuItem.promo" [ngModelOptions]="{updateOn: 'submit'}" />
-        <span class="radio-span">Limited</span>
-      </label>
-
-      <label class="radio-label">
-        <input type="radio" name="promo" [value]="undefined" class="radio-input" [ngModel]="menuItem.promo" [ngModelOptions]="{updateOn: 'submit'}"/>
+        <input type="radio" name="promo" [value]="undefined" class="radio-input" [(ngModel)]="menuItem.promo" />
         <span class="radio-span">None</span>
       </label>
     </p>
@@ -55,18 +50,25 @@
   <!-- icon select option -->
   <label class="form-label">
     <span class="form-span">Image</span>
-    <select name="image" class="select" required [ngModel]="menuItem.image" [ngModelOptions]="{updateOn: 'submit'}">
-      <option *ngFor="let image of images" [ngValue]="image"> {{image}}</option>
+    <select name="image" class="select" required [(ngModel)]="menuItem.image">
+      <option *ngFor="let image of images" [ngValue]="image">{{ image }}</option>
     </select>
   </label>
 
-  <button type="submit" class="button button--green" >Create</button>
-  <button type="button" class="button button--grey"  (click)="form.reset()">Reset</button>
-  <button type="button" class="button button--grey"
-          (click)="form.resetForm({name: 'Margherita Pizza', price: 8.99, isVegetarian: true, promo: 'limited', image: 'margherita_pizza.jpg'})">
+  <button type="button" class="button button--green" (click)="handleCreate(form)">Create</button>
+  <button type="button" class="button button--green" (click)="handleUpdate(form)">Update</button>
+  <button type="button" class="button button--green" (click)="deleteUpdate(form)">Delete</button>
+  <button type="button" class="button button--grey" (click)="form.reset()">Reset</button>
+  <button type="button" class="button button--grey" (click)="form.resetForm({name: 'Margherita Pizza', price: 8.99, isVegetarian: true, promo: 'limited', image: 'margherita_pizza.jpg'})">
     Reset to Default
   </button>
 
   <pre class="form-pre"> Stored Value: {{ menuItem | json }} </pre>
   <pre class="form-pre"> Form Value: {{ form.value | json }} </pre>
 </form>
+
+<ng-template #loading>
+  <p class="noItemsFound">
+    <label class="label">Loading form data ....</label>
+  </p>
+</ng-template>

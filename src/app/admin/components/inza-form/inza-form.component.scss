@@ -131,3 +131,20 @@
 form .ng-invalid.ng-touched {
   background-color: rgba(245, 0, 0, 0.3);
 }
+
+
+.noItemsFound {
+  background-color: #0022ff;
+  border: black;
+  font: bold 27px "Times New Roman";
+  height: 200px;
+  align-content: center;
+  padding-right: 10px;
+  border: #030303 solid 3px;
+  border-radius: 50px;
+
+  .label {
+    color: white;
+    padding: 10px;
+  }
+}

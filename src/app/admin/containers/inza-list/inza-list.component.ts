@@ -9,12 +9,15 @@ import {InzaService} from '../../service/inza.service';
 })
 export class InzaListComponent implements OnInit {
 
-  menuItems!: MenuItem[];
+  menuItems: MenuItem[] = [];
 
   constructor(private inzaService: InzaService) {}
 
   ngOnInit() {
-    this.menuItems = this.inzaService.read();
+    this.inzaService
+        .read()
+        .subscribe((menuItems: MenuItem[]) => (this.menuItems = menuItems));
+    console.log(this.menuItems)
   }
 
   trackById (index: number, value: MenuItem) {
