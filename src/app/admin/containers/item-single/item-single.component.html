@@ -1,24 +1,25 @@
 <div [ngClass]="index % 2 === 0? 'item-even': 'item-odd'">
-  <div class="item-card-container-outer">
-    <div class="item-card-container item-card-left">
-      <!--details container -->
-      <h3>{{ item.name }}
-        <ng-container [ngSwitch]="item.promo">
+    <a class="item-card-container-outer" [routerLink]="item.id">
+        <div class="item-card-container item-card-left">
+            <!--details container -->
+            <h3>{{ item.name }}
+                <ng-container [ngSwitch]="item.promo">
           <span class="promo-label">
             <ng-template [ngSwitchCase]="'new'">NEW</ng-template>
             <ng-template [ngSwitchCase]="'limited'" class="promo-label-limited">LIMITED</ng-template>
             <ng-template [ngSwitchCase]="'free'" class="promo-label-free">FREE</ng-template>
             <ng-template [ngSwitchDefault] class="promo-label-nothing">--</ng-template>
           </span>
-        </ng-container>
-      </h3>
-      <p class="price-tag">Price: {{ item.price | currency: 'EUR'  }}</p>
-      <img class="fixed-size-image-menu-card" src="assets/images/{{item.isVegetarian? 'Vegetarian_Icon.avif' : 'meatproduct.png'}}">
-    </div>
+                </ng-container>
+            </h3>
+            <p class="price-tag">Price: {{ item.price | currency: 'EUR'  }}</p>
+            <img class="fixed-size-image-menu-card"
+                 src="assets/images/{{item.isVegetarian? 'Vegetarian_Icon.avif' : 'meatproduct.png'}}">
+        </div>
 
-    <div class="item-card-container item-card-right">
-      <!--image container -->
-      <div><img src="assets/images/{{item.image}}" alt="Description" class="fixed-size-image"></div>
-    </div>
-  </div>
+        <div class="item-card-container item-card-right">
+            <!--image container -->
+            <div><img src="assets/images/{{item.image}}" alt="Description" class="fixed-size-image"></div>
+        </div>
+    </a>
 </div>

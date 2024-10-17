@@ -1,3 +1,4 @@
+<div class="container">
 <form class="inza-form" #form="ngForm" *ngIf="menuItem; else loading">
   <!-- name text field -->
   <label class="form-label">
@@ -55,18 +56,24 @@
     </select>
   </label>
 
-  <button type="button" class="button button--green" (click)="handleCreate(form)">Create</button>
-  <button type="button" class="button button--green" (click)="handleUpdate(form)">Update</button>
-  <button type="button" class="button button--green" (click)="deleteUpdate(form)">Delete</button>
-  <button type="button" class="button button--grey" (click)="form.reset()">Reset</button>
+  <button type="button" class="button button--green" *ngIf="!isEdit" (click)="handleCreate(form)">Create</button>
+  <button type="button" class="button button--green"  *ngIf="isEdit" (click)="handleUpdate(form)">Update</button>
+  <button type="button" class="button button--green"  *ngIf="isEdit"  (click)="deleteUpdate(form)">Delete</button>
+  <button type="button" class="button button--grey"  *ngIf="form.touched || isEdit" (click)="form.reset()">Reset</button>
   <button type="button" class="button button--grey" (click)="form.resetForm({name: 'Margherita Pizza', price: 8.99, isVegetarian: true, promo: 'limited', image: 'margherita_pizza.jpg'})">
     Reset to Default
   </button>
 
+<!--
   <pre class="form-pre"> Stored Value: {{ menuItem | json }} </pre>
   <pre class="form-pre"> Form Value: {{ form.value | json }} </pre>
+  -->
+  <div style="display: flex; align-items: center;">
+    <label>Output: </label>
+    <pre class="form-pre" >{{isEdit}}</pre>
+  </div>
 </form>
-
+</div>
 <ng-template #loading>
   <p class="noItemsFound">
     <label class="label">Loading form data ....</label>

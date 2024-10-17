@@ -32,11 +32,9 @@ export class InzaService {
         }
 
         //advance way to create it
-        let headers = HttpHeaders({
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        let headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
 
         const options = {
             headers
@@ -58,7 +56,7 @@ export class InzaService {
             );
     }
 
-    readOneItem(id: string) {
+    readOneItem(id: string | null) {
         return this.read().pipe(map((menuItems) => {
                 const menuItem = menuItems.find((menuItem: MenuItem) => menuItem.id === id)
                 if (menuItem) {

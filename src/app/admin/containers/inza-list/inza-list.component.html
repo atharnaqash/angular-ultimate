@@ -1,15 +1,22 @@
-  <div class="container">
-    <div class="menu-panel">
-      <ng-container *ngIf="menuItems.length>0; else noItemsFound">
-        <ng-container *ngFor="let item of menuItems; let i = index; trackBy: trackById">
-          <app-item-card [item]="item" [index]="i"></app-item-card>
-        </ng-container>
-      </ng-container>
 
-      <ng-template #noItemsFound>
-        <p class="noItemsFound">
-          <label class="label">No food items found.</label>
-        </p>
-      </ng-template>
+<div class="container">
+  <div class="menu-panel">
+    <ng-container *ngIf="menuItems.length > 0; else noItemsFound">
+      <ng-container *ngFor="let item of menuItems; let i = index; trackBy: trackById">
+        <app-item-card [item]="item" [index]="i"></app-item-card>
+      </ng-container>
+    </ng-container>
+
+    <div>
+      <a routerLink="new" class="button button--green">
+        New Item +
+      </a>
     </div>
+
+    <ng-template #noItemsFound>
+      <p class="noItemsFound">
+        <label class="label">No food items found.</label>
+      </p>
+    </ng-template>
   </div>
+</div>

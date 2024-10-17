@@ -19,6 +19,43 @@
   display: flex;
 }
 
+
 .menu-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-width columns */
+  gap: 16px; /* Adjust the gap between items as needed */
+  padding-top: 102px;
+}
+
+.noItemsFound {
+  grid-column: span 4; /* Center the "No items found" message across all columns */
+  text-align: center;
+}
+
+.button {
+  width: 100%;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+
+  &:disabled {
+    background: #dddddd;
+  }
+
+  &:focus {
+    border-color: #007bff;
+  }
+
+  &--green {
+    background: #8fbecb;
+    color: white;
+  }
+
+  &--grey {
+    background: #c4c4c4;
+    color: #090909;
+  }
+
 }

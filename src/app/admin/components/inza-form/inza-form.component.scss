@@ -1,6 +1,7 @@
 .inza-form {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 81px;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -110,7 +111,6 @@
       background: #c4c4c4;
       color: #090909;
     }
-
   }
 
   .form-pre {
@@ -120,6 +120,8 @@
     border-radius: 5px;
     font-size: 14px;
     white-space: pre-wrap;
+    width: 100%;
+    margin-left: 6px;
   }
 }
 
@@ -147,4 +149,8 @@ form .ng-invalid.ng-touched {
     color: white;
     padding: 10px;
   }
+}
+
+.container {
+  display: flex;
 }

@@ -1,6 +1,9 @@
 <div class="main">
     <app-inza-list></app-inza-list>
     <div class="admin-panel">
-        <app-inza-form [menuItem]="menuItem" (create)="onCreate($event)" (update)="onUpdate($event)" (delete)="onDelete($event)"></app-inza-form>
+        <app-inza-form [menuItem]="menuItem"
+                       (create)="onCreate($event)"
+                       (update)="onUpdate($event)"
+                       (delete)="onDelete($event)"></app-inza-form>
     </div>
 </div>

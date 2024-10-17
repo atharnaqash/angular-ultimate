@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuItem} from './data-model/menu-item.model';
 import {InzaService} from './service/inza.service';
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-admin',
@@ -16,10 +17,6 @@ export class AdminComponent implements OnInit {
     }
 
     ngOnInit() {
-        //get item with id or else create a default object
-        const id = '915EiI_';
-        this.inzaService.readOneItem(id)
-            .subscribe((menuItem: MenuItem) => this.menuItem = menuItem);
     }
 
     onCreate(menuItem: MenuItem) {
